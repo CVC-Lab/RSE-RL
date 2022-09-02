@@ -6,7 +6,7 @@ Code for reproducing results in **Recursive Self-Improvement for Camera Image an
 
 Our RSE-RL model views the identification and correction of artifacts as a recursive self-learning and self-improvement exercise and consists of two major sub-modules: (i) The latent feature sub-space clustering/grouping obtained through an equivariant variational auto-encoder enabling rapid identification of the correspondence and discrepancy between noisy and clean image patches. (ii) The adaptive learned transformation controlled by a trust-region soft actor-critic agent that progressively filters and enhances the noisy patches using its closest feature distance neighbors of clean patches. Artificial artifacts that may be introduced in a patch-based ISP, are also removed through a reward-based de-blocking recovery and image enhancement.  We demonstrate the self-improvement feature of our model by recursively training and testing on images, wherein the enhanced images resulting from each epoch provide a natural data augmentation and robustness to the RSE-RL training-filtering pipeline.
 
-![atchetecture](https://github.com/yunhaoyang234/RSE-RL/blob/main/figures/struct.png)
+![atchetecture](https://github.com/CVC-Lab/rse_rl/blob/main/figures/struct.png)
 
 ## Requirements:
 See requirement.txt\
