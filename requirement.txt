@@ -1,10 +1,11 @@
-tensorflow==2.5.0
-matplotlib==3.3.0
-scipy==1.4.1
-numpy==1.18.5
-scikit-learn==0.22.2
+tensorflow>=2.2.0
+matplotlib>=3.3.0
+scipy>=1.4.1
+numpy>=1.18.5
+gym==0.25.2
+scikit-learn>=0.22.2
 sewar==0.4.4
-opencv_python==4.1.2.30
+opencv_python>=4.1.2.30
 scikit-image==0.16.2
 imageio==2.9.0
 torchvision==0.1.8

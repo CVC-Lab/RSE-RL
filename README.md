@@ -1,8 +1,8 @@
 # Recursive Self-Enhancing Reinforcement Learning (RSE-RL)
 
-[[paper]](TBD) 
+[[paper]](https://www.semanticscholar.org/paper/Reinforcement-Learning-of-Self-Enhancing-Camera-and-Bajaj-Wang/5755a54efe2b4744b62d050bd6569e1b401bc710) 
 
-Code for reproducing results in **Recursive Self-Improvement for Camera Image and Signal Processing**.
+Code for reproducing results in **Reinforcement Learning of Self Enhancing Camera Image and Signal Processing**.
 
 Our RSE-RL model views the identification and correction of artifacts as a recursive self-learning and self-improvement exercise and consists of two major sub-modules: (i) The latent feature sub-space clustering/grouping obtained through an equivariant variational auto-encoder enabling rapid identification of the correspondence and discrepancy between noisy and clean image patches. (ii) The adaptive learned transformation controlled by a trust-region soft actor-critic agent that progressively filters and enhances the noisy patches using its closest feature distance neighbors of clean patches. Artificial artifacts that may be introduced in a patch-based ISP, are also removed through a reward-based de-blocking recovery and image enhancement.  We demonstrate the self-improvement feature of our model by recursively training and testing on images, wherein the enhanced images resulting from each epoch provide a natural data augmentation and robustness to the RSE-RL training-filtering pipeline.
 
@@ -21,6 +21,8 @@ GPU is required
 Please put the decompressed datasets in the same directory with the code during experiments, otherwise please set **cwd** in utils.py to the file directory where the datasets locate at.
 
 ## Experiments:
+#### An small scale experiment example can be found in the [notebook](https://github.com/yunhaoyang234/RSE-RL/blob/main/RSE_RL.ipynb)
+
 #### CelebA Denoising Experiment
 ```bash
 $ python3 experiment_celeba.py \
@@ -70,4 +72,10 @@ This project is a collective result of Yunhao Yang, Yuhan Zheng, Yi Wang, and Dr
 
 ## Cite us
 
-RSE-RL (TBD)
+```bash
+@inproceedings{Bajaj2021ReinforcementLO,
+  title={Reinforcement Learning of Self Enhancing Camera Image and Signal Processing},
+  author={Chandrajit Bajaj and Yi Wang and Yunhao Yang},
+  year={2022}
+}
+```

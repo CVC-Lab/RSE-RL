@@ -3,16 +3,19 @@ from gym import spaces
 from stable_baselines3 import A2C
 from stable_baselines3 import SAC
 from stable_baselines3.common.vec_env.dummy_vec_env import DummyVecEnv
+from evaluation import *
+from cv2 import imshow
 
 class Img_Enhancing_Env(gym.Env):
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, clear_images, noise_images, models, target_score):
+    def __init__(self, clear_images, noise_images, models, target_score, display_result=True):
         super(Img_Enhancing_Env, self).__init__()
         self.clear_images = clear_images
         self.noise_images = noise_images
         self.test_images = np.array(clear_images)
         self.target_score = target_score
+        self.display_result = display_result
 
         self.init_weights = []
         for model in models:
@@ -52,7 +55,9 @@ class Img_Enhancing_Env(gym.Env):
         done = psnr >= self.target_score - 1
         self.current_step += 1
         self.psnr = psnr
-        print(self.current_step, reward, psnr)
+        if self.display_result:
+            print(self.current_step, reward, quality_evaluation(clear_images, recons_images))
+            imshow(recons_images[0])
         obs = np.array([psnr])
         return obs, reward, done, {}
 
